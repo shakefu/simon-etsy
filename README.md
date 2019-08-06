@@ -99,8 +99,8 @@ doctor                         (+1557.0)
 snape                          (+751.0)
 # Use an environment variable for injecting the API key
 $ ETSY_API_KEY=XXXX simon-etsy --api-key XXXX printandclay
-# You can invoke the command with multiple stores at once
-$ simon-etsy --api-key XXXX --debug printandclay dbforge
+# You can invoke the command with multiple shops at once
+$ simon-etsy --api-key XXXX printandclay dbforge
 ```
 
 ### Docker install
