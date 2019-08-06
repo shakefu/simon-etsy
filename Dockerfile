@@ -33,17 +33,21 @@ COPY simon_etsy/ simon_etsy/
 # Install dependencies
 RUN pip install  .
 
-# Install nltk files:
-RUN python -m nltk.downloader all
+# Make nltk directories for linking
+RUN mkdir -p /usr/nltk_data /usr/share/nltk_data /usr/lib/nltk_data \
+    /usr/local/share/nltk_data /usr/local/lib/nltk_data /root/nltk_data
+# Install nltk minimal files
+RUN python -m nltk.downloader -d /usr/share/nltk_data punkt averaged_perceptron_tagger
 
 # Building executable
-RUN pyinstaller --onefile simon_etsy/__main__.py
+RUN pyinstaller --onefile simon_etsy/__main__.py --name simon-etsy
 
 # Stage for executable container
 FROM python:3.6 AS final
 
 # Copy artifacts from previous build
-COPY --from=build /usr/src/app/dist/main /usr/local/bin/simon-etsy
+COPY --from=build /usr/src/app/dist/simon-etsy /usr/local/bin/simon-etsy
+# COPY --from=build /root/nltk_data/ /root/nltk_data/
 
 # Use our command for container runtime
 ENTRYPOINT ["/usr/local/bin/simon-etsy"]
