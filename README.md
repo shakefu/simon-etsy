@@ -24,6 +24,7 @@ run this command as an administrator.
 ```bash
 # All nltk corpora, this may be slow
 $ python -m nltk.downloader all
+
 # OR just the bare minimum
 $ python -m nltk.downloader punkt averaged_perceptron_tagger
 ```
@@ -53,8 +54,10 @@ All the dependencies and nltk data files should be bundled into this binary.
 ```bash
 # Create a stopped container
 $ docker create --name simon-etsy shakefu/simon-etsy
+
 # Get the executable binary out
 $ docker cp simon-etsy:/usr/local/bin/simon-etsy .
+
 # Clean up
 $ docker rm simon-etsy
 ```
@@ -73,6 +76,7 @@ forward.
 ```bash
 # View help
 $ simon-etsy --help
+
 # Get a store's listing
 $ simon-etsy --api-key XXXX printandclay
 printandclay
@@ -82,6 +86,7 @@ mug                            (+4470.0)
 yarn                           (+4305.0)
 doctor                         (+1557.0)
 snape                          (+751.0)
+
 # Run the command with debug information
 $ simon-etsy --api-key XXXX --debug printandclay
 DEBUG:simon-etsy:Getting page 1 at offset 0.
@@ -97,8 +102,10 @@ mug                            (+4470.0)
 yarn                           (+4305.0)
 doctor                         (+1557.0)
 snape                          (+751.0)
+
 # Use an environment variable for injecting the API key
 $ ETSY_API_KEY=XXXX simon-etsy --api-key XXXX printandclay
+
 # You can invoke the command with multiple shops at once
 $ simon-etsy --api-key XXXX printandclay dbforge
 printandclay
@@ -116,6 +123,7 @@ blade                          (+1569.0)
 damascus                       (+1559.0)
 wootz                          (+950.0)
 edge                           (+921.0)
+
 # You can use the DEBUG environment variable to increase logging
 $ DEBUG=true simon-etsy --api-key XXXX printandclay
 ```
@@ -128,8 +136,10 @@ All the same command options are available for container CLI. Simply run via
 ```bash
 # View help
 $ docker run -it --rm shakefu/simon-etsy --help
+
 # Get terms
 $ docker run -it --rm shakefu/simon-etsy --api-key XXXX printandclay
+
 # etc.
 ```
 
