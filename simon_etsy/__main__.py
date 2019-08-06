@@ -1,3 +1,4 @@
+import os
 import sys
 import logging
 
@@ -37,7 +38,7 @@ class Main(Command):
 
     def run(self):
         """ Main method. """
-        self.init_logging(self.args.debug)
+        self.init_logging(bool(os.environ.get('DEBUG', self.args.debug)))
 
         for store in self.args.store:
             data = simon_etsy.get_all_shop_listings(self.args.api_key, store)
