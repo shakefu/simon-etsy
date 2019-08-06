@@ -46,7 +46,7 @@ container.
 
 Once the docker image is built, it's possible to get a standalone command from
 it to run locally. This is built against Ubuntu 18.04, but it should work on
-any system with a compatible glibc version and x86_64.
+any Linux system with a compatible glibc version and x86_64.
 
 All the dependencies and nltk data files should be bundled into this binary.
 
