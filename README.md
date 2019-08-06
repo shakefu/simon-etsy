@@ -75,6 +75,8 @@ forward.
 $ simon-etsy --help
 # Get a store's listing
 $ simon-etsy --api-key XXXX printandclay
+printandclay
+------------
 bowl                           (+4555.0)
 mug                            (+4470.0)
 yarn                           (+4305.0)
@@ -88,6 +90,8 @@ DEBUG:urllib3.connectionpool:https://openapi.etsy.com:443 "GET /v2/shops/printan
 DEBUG:simon-etsy:Getting page 2 at offset 100.
 DEBUG:urllib3.connectionpool:https://openapi.etsy.com:443 "GET /v2/shops/printandclay/listings/active?offset=100&api_key=XXXX&limit=100 HTTP/1.1" 200 None
 DEBUG:simon-etsy:Parsing 119 results.
+printandclay
+------------
 bowl                           (+4555.0)
 mug                            (+4470.0)
 yarn                           (+4305.0)
@@ -95,6 +99,8 @@ doctor                         (+1557.0)
 snape                          (+751.0)
 # Use an environment variable for injecting the API key
 $ ETSY_API_KEY=XXXX simon-etsy --api-key XXXX printandclay
+# You can invoke the command with multiple stores at once
+$ simon-etsy --api-key XXXX --debug printandclay dbforge
 ```
 
 ### Docker install
