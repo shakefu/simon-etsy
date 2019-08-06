@@ -20,9 +20,6 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6 10 &
     update-alternatives --install /usr/local/bin/python python /usr/bin/python3.6 10 && \
     update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 
-# Uncomment this to sanity check we're getting Python 3.6 or later
-# RUN python3 --version
-
 # Install builder
 RUN pip install pyinstaller
 
@@ -47,7 +44,6 @@ FROM python:3.6 AS final
 
 # Copy artifacts from previous build
 COPY --from=build /usr/src/app/dist/simon-etsy /usr/local/bin/simon-etsy
-# COPY --from=build /root/nltk_data/ /root/nltk_data/
 
 # Use our command for container runtime
 ENTRYPOINT ["/usr/local/bin/simon-etsy"]
