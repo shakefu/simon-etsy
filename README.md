@@ -76,6 +76,21 @@ forward.
 ```bash
 # View help
 $ simon-etsy --help
+usage: simon-etsy --api-key API_KEY [--top TOP] [--debug] [--help]
+                  store [store ...]
+
+If an arg is specified in more than one place, then commandline values
+override environment variables which override defaults.
+
+positional arguments:
+  store                 Store name or ID
+
+optional arguments:
+  --api-key API_KEY, -a API_KEY
+                        Etsy API key [env var: ETSY_API_KEY]
+  --top TOP, -t TOP     Number of top keywords to display [env var: ETSY_TOP]
+  --debug               Debug output [env var: ETSY_DEBUG]
+  --help                display this help and exit
 
 # Get a store's listing
 $ simon-etsy --api-key XXXX printandclay
