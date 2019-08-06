@@ -44,8 +44,11 @@ class Main(Command):
             data = simon_etsy.get_all_shop_listings(self.args.api_key, store)
             weights = simon_etsy.analyze(data)
 
-        for weight, phrase in weights[:self.args.top]:
-            print(f"{phrase.ljust(30)} (+{weight})")
+            print(store)
+            print('-' * len(store))
+            for weight, phrase in weights[:self.args.top]:
+                print(f"{phrase.ljust(30)} (+{weight})")
+            print()
 
     def init_logging(self, debug):
         """ Turn on Python logging. """
