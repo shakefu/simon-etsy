@@ -101,6 +101,23 @@ snape                          (+751.0)
 $ ETSY_API_KEY=XXXX simon-etsy --api-key XXXX printandclay
 # You can invoke the command with multiple shops at once
 $ simon-etsy --api-key XXXX printandclay dbforge
+printandclay
+------------
+bowl                           (+4555.0)
+mug                            (+4470.0)
+yarn                           (+4305.0)
+doctor                         (+1557.0)
+snape                          (+751.0)
+
+dbforge
+-------
+knife                          (+6418.0)
+blade                          (+1569.0)
+damascus                       (+1559.0)
+wootz                          (+950.0)
+edge                           (+921.0)
+# You can use the DEBUG environment variable to increase logging
+$ DEBUG=true simon-etsy --api-key XXXX printandclay
 ```
 
 ### Docker install
